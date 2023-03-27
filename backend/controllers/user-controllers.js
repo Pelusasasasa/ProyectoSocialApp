@@ -21,9 +21,11 @@ userCTRL.getForName = async(req,res)=>{
     res.send(user);
 }
 
-userCTRL.put = async(req,res)=>{
+userCTRL.putForId = async(req,res)=>{
     const {id} = req.params;
     const user = await User.findOneAndUpdate({_id:id},req.body);
     console.log(`Usuario ${req.body.name} Modificado`);
     res.end();
 }
+
+module.exports = userCTRL
