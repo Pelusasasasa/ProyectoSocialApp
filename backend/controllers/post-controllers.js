@@ -29,4 +29,11 @@ postCTRL.deleteForId = async(req,res)=>{
     res.end();
 }
 
+postCTRL.getForUserId = async(req,res)=>{
+    const {userId} = req.params;
+    const posts = await Post.find({userId:userId});
+    res.send(posts);
+}
+
+
 module.exports = postCTRL
