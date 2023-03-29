@@ -28,4 +28,11 @@ userCTRL.putForId = async(req,res)=>{
     res.end();
 }
 
+userCTRL.deleteForId = async(req,res)=>{
+    const {id} = req.params;
+    const user = await User.findOneAndDelete({_id:id});
+    console.log(`Usuario con _id ${id} eliminado`);
+    res.end();
+};
+
 module.exports = userCTRL
